@@ -18,11 +18,12 @@ module.exports = {
                 test: /\.(js)$/,
                 use: "babel-loader"
             },
-
-            output: {
-                path: path.resolve(__dirname, 'dist'),
-                filename: 'index.js
-            }
         ]
-    }
-};
+    },   
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
+        },
+        plugins: [new HtmlWebpackPlugin()],
+        mode: process.env.Node_ENV === 'production' ? "development" : "production"
+    };        
